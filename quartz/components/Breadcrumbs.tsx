@@ -60,6 +60,10 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
     const slugParts = fileData.slug!.split("/")
     const pathNodes = trie.ancestryChain(slugParts)
 
+    if (options.hideOnRoot && fileData.slug === "index") {
+      return null // or <></> if you prefer an empty fragment
+    }
+
     if (!pathNodes) {
       return null
     }
