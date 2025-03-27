@@ -26,6 +26,11 @@ interface BreadcrumbOptions {
    * Whether to display the current page in the breadcrumbs.
    */
   showCurrentPage: boolean
+
+  /**
+   * Whether to display breadcrumbs on root `index.md`
+   */
+  hideOnRoot: boolean
 }
 
 const defaultOptions: BreadcrumbOptions = {
@@ -33,6 +38,7 @@ const defaultOptions: BreadcrumbOptions = {
   rootName: "Home",
   resolveFrontmatterTitle: true,
   showCurrentPage: true,
+  hideOnRoot: true,
 }
 
 function formatCrumb(displayName: string, baseSlug: FullSlug, currentSlug: SimpleSlug): CrumbData {
